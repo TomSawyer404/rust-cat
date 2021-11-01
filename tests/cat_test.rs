@@ -65,7 +65,7 @@ fn one_file_with_arg_b() -> Result<(), Box<dyn std::error::Error>> {
 fn two_file_with_arg_n() -> Result<(), Box<dyn std::error::Error>> {
     run(
         &["-n", "Cargo.toml", "Cargo.toml"],
-        "tests/expected/one_file_with_arg_n.txt",
+        "tests/expected/two_file_with_arg_n.txt",
     )
 }
 
@@ -73,7 +73,7 @@ fn two_file_with_arg_n() -> Result<(), Box<dyn std::error::Error>> {
 fn two_file_with_arg_b() -> Result<(), Box<dyn std::error::Error>> {
     run(
         &["-b", "Cargo.toml", "Cargo.toml"],
-        "tests/expected/one_file_with_arg_b.txt",
+        "tests/expected/two_file_with_arg_b.txt",
     )
 }
 

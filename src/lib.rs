@@ -50,6 +50,9 @@ fn open(filename: &str) -> Result<Box<dyn BufRead>, Box<dyn std::error::Error>> 
 }
 
 pub fn run(config: Config) -> Result<(), Box<dyn std::error::Error>> {
+    let mut line_num: usize = 0;
+    let mut nonblank_line_num: usize = 0;
+
     for filename in config.files {
         // 1. Open file
         match open(&filename) {
@@ -58,11 +61,11 @@ pub fn run(config: Config) -> Result<(), Box<dyn std::error::Error>> {
                 //println!("{}: ", filename);
 
                 // 2. Display file content with specified args
-                let mut nonblank_line_num: usize = 0;
-                for (line_num, line_content) in file.lines().enumerate() {
+                for (_index, line_content) in file.lines().enumerate() {
                     let line_content = line_content?;
                     if config.number_lines {
-                        println!("{:6}\t{}", line_num + 1, line_content);
+                        line_num += 1;
+                        println!("{:6}\t{}", line_num, line_content);
                     } else if config.number_nonblank_lines && !line_content.is_empty() {
                         nonblank_line_num += 1;
                         println!("{:6}\t{}", nonblank_line_num, line_content);
