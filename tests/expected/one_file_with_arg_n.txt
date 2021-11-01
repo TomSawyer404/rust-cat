@@ -1,0 +1,12 @@
+     1	[package]
+     2	name = "rust-cat"
+     3	version = "0.1.0"
+     4	edition = "2018"
+     5	
+     6	# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+     7	
+     8	[dependencies]
+     9	clap = "2.33.3"
+    10	[dev-dependencies]
+    11	predicates = "2"
+    12	assert_cmd = "2"
